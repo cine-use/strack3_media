@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadifive.min.js"></script>
+    <style type="text/css">
+        body {
+            font: 13px Arial, Helvetica, Sans-serif;
+        }
+        .uploadifive-button {
+            float: left;
+            margin-right: 10px;
+        }
+        #queue {
+            border: 1px solid #E5E5E5;
+            height: 177px;
+            overflow: auto;
+            margin-bottom: 10px;
+            padding: 0 3px 3px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<h1>UploadiFive Demo</h1>
+<form>
+    <div id="queue"></div>
+    <input id="file_upload" name="file_upload" type="file" multiple="true">
+    <a style="position: relative; top: 8px;" href="javascript:$('#file_upload').uploadifive('upload')">Upload Files</a>
+</form>
+
+<script type="text/javascript">
+    $(function() {
+        $('#file_upload').uploadifive({
+            'auto'             : false,
+            'uploadScript'      : 'http://192.168.31.108/strack_service/upload/',
+            'formData'         : {
+                hhw: 22222,
+                kkkk: 'swwwww'
+            },
+            'queueID'          : 'queue',
+            'onUploadComplete' : function(file, data) { console.log(data); }
+        });
+    });
+</script>
+</body>
+</html>
